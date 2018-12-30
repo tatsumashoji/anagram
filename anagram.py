@@ -3,17 +3,17 @@ import sys,argparse
 import itertools
 from nltk.corpus import words
 
-#	-------------------------------------------------------------------------------------
-#	functions etc.
-#	-------------------------------------------------------------------------------------
-#	word database
+#-------------------------------------------------------------------------------------
+#functions etc.
+#-------------------------------------------------------------------------------------
+#word database
 wdic=words.words()
-#	permutation, combination function
+#permutation, combination function
 def wp(w):
 	return list(set(["".join(p) for p in itertools.permutations(w)]))
 def wcn(w,n):
 	return ["".join(p) for p in itertools.combinations(w,n)]
-#	return anagrams
+#return anagrams
 def ang(w):
 	pli=wp(w)
 	out=[]
@@ -21,7 +21,7 @@ def ang(w):
 		if i in wdic:
 			out.append(i)
 	return out
-#	return anagrams under the specified length
+#return anagrams under the specified length
 def angg(w,nl):
 	target=[]
 	for i in nl:
@@ -32,9 +32,9 @@ def angg(w,nl):
 	print "\t".join(sorted(list(set(out))))
 
 
-#	-------------------------------------------------------------------------------------
-#	main
-#	-------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------
+#main
+#-------------------------------------------------------------------------------------
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('-w', '--word', dest='word', required=True, help='')
 parser.add_argument('-s', '--shortest', dest='shortest', required=True, help='')
